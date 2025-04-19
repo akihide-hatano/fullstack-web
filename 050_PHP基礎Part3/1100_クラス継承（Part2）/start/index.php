@@ -23,6 +23,3 @@ class Person
         echo 'bye';
     }
 }
-
-$bob = new Person('Bob', 18);
-$bob->hello();

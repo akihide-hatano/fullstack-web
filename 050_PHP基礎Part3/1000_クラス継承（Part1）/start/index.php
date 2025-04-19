@@ -6,12 +6,14 @@ class Person
 {
     protected $name;
     public $age;
-    public const WHERE = 'Earth';
+    public static $where = 'Earth';
 
     function __construct($name, $age)
     {
         $this->name = $name;
         $this->age = $age;
+        echo self::$where;
+        echo static::$where;
     }
 
     function hello() {
@@ -27,17 +29,26 @@ class Person
 class Japanese extends Person{
     public static $where = "Tokyo";
 
+    function __construct($name,$age)
+    {
+        parent::__construct($name,$age);
+    }
+
     function hello() {
         echo 'こんにちは, ' . $this->name;
+        return $this;
+    }
+
+    function jusho(){
+        echo "住所は" . static::$where . "です";
         return $this;
     }
 }
 
 $jiro = new Japanese('次郎', 18);
-$jiro->hello();
-$address = Japanese::$where;
-echo "<div>住所は{$address}です</div>";
-
+// $jiro->hello();
+// Japanese::$where = "Osaka";
+// $jiro->jusho();
 
 // $bob->hello()->bye();
 
