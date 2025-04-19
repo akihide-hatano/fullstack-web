@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 class Person
 {
     public $name;
@@ -12,8 +12,20 @@ class Person
 
     function hello() {
         echo 'hello, ' . $this->name;
+        return $this;
     }
+
+    function sayounara() {
+        echo 'sayounara, ' . $this->name;
+        return $this;
+    }
+
+
 }
 
 $bob = new Person("bob",18);
-echo $bob->hello();
+$bob->hello();
+
+
+$tim = new Person("tim",32);
+echo $tim->hello(); 
