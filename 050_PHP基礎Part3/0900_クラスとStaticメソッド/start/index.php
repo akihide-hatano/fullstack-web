@@ -20,8 +20,8 @@ class Person
         return $this;
     }
 
-    function bye() {
-        echo 'bye,' . $this->name;
+    static function bye() {
+        echo 'bye,';
 }
 }
 
