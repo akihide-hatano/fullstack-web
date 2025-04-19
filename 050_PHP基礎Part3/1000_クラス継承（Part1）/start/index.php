@@ -4,7 +4,7 @@
  */
 class Person
 {
-    private $name;
+    protected $name;
     public $age;
     public const WHERE = 'Earth';
 
@@ -24,8 +24,21 @@ class Person
     }
 }
 
-$bob = new Person('Bob', 18);
-$bob->hello();
+class Japanese extends Person{
+    public static $where = "Tokyo";
+
+    function hello() {
+        echo 'こんにちは, ' . $this->name;
+        return $this;
+    }
+}
+
+$jiro = new Japanese('次郎', 18);
+$jiro->hello();
+$address = Japanese::$where;
+echo "<div>住所は{$address}です</div>";
+
+
 // $bob->hello()->bye();
 
 // $tim = new Person('Tim', 32);
