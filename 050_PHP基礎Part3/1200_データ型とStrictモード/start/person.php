@@ -3,9 +3,9 @@ namespace animal;
 
 abstract class Person
 {
-    protected $name;
-    public $age;
-    public static $WHERE = 'Earth';
+    protected string $name;
+    public int $age;
+    public static string $WHERE = 'Earth';
 
     function __construct($name, $age)
     {
@@ -22,7 +22,7 @@ abstract class Person
 
 class Japanese extends Person {
 
-    public static $WHERE = '日本';
+    public static string $WHERE = '日本';
     
     function hello(): self {
         echo 'こんにちは、' . $this->name;
@@ -30,7 +30,7 @@ class Japanese extends Person {
     }
 
     function jusho() {
-        echo '住所は' . parent::$WHERE . 'です。';
+        echo '住所は' . static::$WHERE . 'です。';
         return $this;
     }
 }
